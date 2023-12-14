@@ -1,34 +1,18 @@
 package web.pp_3_1_2.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import web.pp_3_1_2.model.User;
-import web.pp_3_1_2.repository.UserRepository;
 
 import java.util.List;
 
-@Service
-public class UserService {
-    private final UserRepository userRepository;
+public interface UserService {
 
-    @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    User getUser(Long id);
 
-    public User getUser(Long id) {
-        return userRepository.getOne(id);
-    }
+    List<User> getAllUsers();
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
+    User saveUser(User user);
 
-    public User saveUser(User user) {
-        return userRepository.save(user);
-    }
+    void deleteUser(Long id);
 
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
-    }
+
 }

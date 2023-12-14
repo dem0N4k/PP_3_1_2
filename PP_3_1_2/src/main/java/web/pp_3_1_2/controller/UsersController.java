@@ -29,28 +29,15 @@ public class UsersController {
         return "all-users";
     }
 
-//    @GetMapping("/saveUser")
-//    public String saveUserForm(Model model) {
-//        User user = new User();
-//        model.addAttribute("user", user);
-//        return "user-create";
-//    }
 
     @GetMapping("/saveUser")
     public String saveUserForm(User user) {
         return "user-create";
     }
 
-//    @GetMapping("/saveUser")
-//    public String saveUserForm(Model model) {
-//        User user = new User();
-//        model.addAttribute("user", user);
-//        return "user-create";
-//    }
 
     @PostMapping("/saveUser")
-//    public String saveUser(User user) {
-        public String saveUser(@ModelAttribute("user") User user) {
+    public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/";
     }
@@ -64,7 +51,6 @@ public class UsersController {
 
     @PostMapping("/updateUser")
     public String updateUser(User user) {
-//        public String updateUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/";
     }
